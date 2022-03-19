@@ -1,0 +1,84 @@
+#include <stdio.h>
+int main()
+{
+	int i;
+	int* ptr;
+	int** dptr; i = 1234;
+	ptr = &i;
+	dptr = &ptr;
+	printf("[checking values before ptr = &i] \n");
+	printf("value of i == %d\n", i);
+	printf("address of i == %p\n", &i);
+	printf("value of ptr == %p\n", ptr);
+	printf("address of ptr == %p\n", &ptr);//i의 값을 출력 i의 주소 ptr의 값 ptr의 주소
+	ptr = &i; //ptr은 이제 i의 주소를 보유하고 있습니다.
+	printf("\n[checking values after ptr = &i] \n");
+	printf("value of i == %d\n", i);
+	printf("address of i == %p\n", &i);
+	printf("value of ptr == %p\n", ptr);
+	printf("address of ptr == %p\n", &ptr);
+	printf("value of *ptr == %d\n", *ptr);//*ptr은 자체 값입니다.
+	dptr = &ptr;// dptr은 이제 ptr의 주소를 가지고 있습니다 
+	printf("\n[checking values after dptr = &ptr] \n");
+	printf("value of i == %d\n", i);
+	printf("address of i == %p\n", &i);
+	printf("value of ptr == %p\n", ptr);
+	printf("address of ptr == %p\n", &ptr);
+	printf("value of *ptr == %d\n", *ptr);
+	printf("value of dptr == %p\n", dptr);
+	printf("address of ptr == %p\n", &dptr);
+	printf("value of *dptr == %p\n", *dptr);
+	printf("value of **dptr == %d\n", **dptr);//*ptr은 자체 값, 즉 &i이므로 *ptr은 주소입니다.
+	*ptr = 7777; //*ptr 값 변경
+	printf("\n[after *ptr = 7777] \n");
+	printf("value of i == %d\n", i);
+	printf("value of *ptr == %d\n", *ptr);
+	printf("value of **dptr == %d\n", **dptr);//할당 *ptr이 777이므로 i==7777==**dptr
+	**dptr = 8888; //**dptr 값 변경
+	printf("\n[after **dptr = 8888] \n");
+	printf("value of i == %d\n", i);
+	printf("value of *ptr == %d\n", *ptr);
+	printf("value of **dptr == %d\n", **dptr);//**dptr은 *dptr 변수 자체이므로 8888==**dptr==*ptr==i
+	printf("[----- [CHEN YUXIANG] [2020039089] -----]\n");
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+int main()
+{
+	char charType;
+	int integerType;
+	float floatType;
+	double doubleType;
+	printf("Size of char: %ld byte\n", sizeof(charType));
+	printf("Size of int: %ld bytes\n", sizeof(integerType));
+	printf("Size of float: %ld bytes\n", sizeof(floatType));
+	printf("Size of double: %ld bytes\n", sizeof(doubleType));//출력 char int float 이중 문자 유형 크기
+	printf("Size of char: %ld byte\n", sizeof(char));
+	printf("Size of int: %ld bytes\n", sizeof(int));
+	printf("Size of float: %ld bytes\n", sizeof(float));
+	printf("Size of double: %ld bytes\n", sizeof(double));//출력 char int float double 데이터 유형 크기
+	printf("[----- [CHEN YUXIANG] [2020039089] -----]\n");
+	printf("Size of char*: %ld byte\n", sizeof(char*));
+	printf("Size of int*: %ld bytes\n", sizeof(int*));
+	printf("Size of float*: %ld bytes\n", sizeof(float*));
+	printf("Size of double*: %ld bytes\n", sizeof(double*));//출력 char int float 이중 포인터 유형 크기
+	return 0;
+}
